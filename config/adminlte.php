@@ -233,23 +233,48 @@ return [
     'menu' => [
         [
             'text' => 'Usuarios',
-            'url'  => 'admin/settings',
+            'url'  => 'user',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Propiedades',
             'url'  => '/',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa fa-home',
         ],
         [
-            'text' => 'Configuración',
-            'url'  => '/',
-            'icon' => 'fas fa-fw fa-user',
+            'text'    => 'Configuraciones',
+            'icon'    => 'fas fa-cogs',
+            'submenu' => [
+                [
+                    'text' => 'Tipos',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Operaciones',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Equipo',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Áreas',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Descripciones',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Ubicaciones',
+                    'url'  => '#',
+                ],
+            ],
         ],
         [
-            'text' => 'Sitio',
+            'text' => 'Ver sitio',
             'url'  => '/',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa fa-eye',
         ],
         // [
         //     'text' => 'search',
@@ -280,8 +305,8 @@ return [
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
         // [
-        //     'text'    => 'multilevel',
-        //     'icon'    => 'fas fa-fw fa-share',
+        //     'text'    => 'Configuraciones',
+        //     'icon'    => 'fas fa-cogs',
         //     'submenu' => [
         //         [
         //             'text' => 'level_one',
