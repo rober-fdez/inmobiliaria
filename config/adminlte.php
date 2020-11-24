@@ -246,8 +246,8 @@ return [
             'icon'    => 'fas fa-cogs',
             'submenu' => [
                 [
-                    'text' => 'Tipos',
-                    'url'  => '#',
+                    'text' => 'Tipos de inmuebles',
+                    'url'  => 'inmuebletype',
                 ],
                 [
                     'text' => 'Operaciones',
@@ -441,12 +441,12 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@10',
                 ],
             ],
         ],

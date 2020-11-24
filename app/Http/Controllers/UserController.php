@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\DataTables\UserDataTable;
 
+use App\Http\Requests\UpdateUser;
+use App\Http\Requests\UserStore;
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,9 +14,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UserDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('user.index');
+        $users = User::paginate(10);
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -24,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -33,9 +36,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStore $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->cell_phone = $request->cell_phone;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect('user')->with('status_success', "El usuario se creo correctamente");
     }
 
     /**
@@ -57,7 +66,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -67,9 +77,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUser $request, User $user)
     {
-        //
+        $user = User::find($user->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->cell_phone = $request->cell_phone;
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
+        $user->save();
+        return redirect('user')->with('status_success', "El usuario se actualizo correctamente");
+
     }
 
     /**
@@ -80,6 +99,19 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('user')->with('status_success', "El usuario se elimino correctamente");
+    }
+    public function setInactiveUser($id){
+        $user = User::find($id);
+        $user->status = 0 ;
+        $user->save();
+        return redirect('user')->with('status_success', "El usuario se deshablito correctamente");
+    }
+    public function setActiveUser($id){
+        $user = User::find($id);
+        $user->status = 1 ;
+        $user->save();
+        return redirect('user')->with('status_success', "El usuario se habilito correctamente");
     }
 }

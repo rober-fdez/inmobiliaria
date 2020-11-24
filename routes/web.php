@@ -21,3 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('user', 'UserController');
+Route::get('inactive/{id}', 'UserController@setInactiveUser')->name('inactivate-user');
+Route::get('active/{id}', 'UserController@setActiveUser')->name('active-user');
+Route::resource('inmuebletype', 'InmuebletypeController');
