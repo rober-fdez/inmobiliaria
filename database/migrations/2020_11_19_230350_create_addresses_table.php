@@ -18,8 +18,8 @@ class CreateAddressesTable extends Migration
             $table->string('street_number');
             $table->string('street');
             $table->string('zip_code');
-            $table->string('latitude')->default('N/A');
-            $table->string('longitude')->default('N/A');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->foreignId('municipality_id');
             $table->foreign('municipality_id')->references('id')->on('municipalities');
             $table->timestamps();

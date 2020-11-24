@@ -16,7 +16,7 @@ class CreateMunicipalitiesTable extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('short_name')->default('N/A');
+            $table->string('short_name')->nullable();
             $table->foreignId('state_id');
             $table->foreign('state_id')->references('id')->on('states');
             $table->timestamps();

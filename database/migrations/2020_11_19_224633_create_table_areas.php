@@ -16,7 +16,7 @@ class CreateTableAreas extends Migration
         Schema::create('areas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->default('N/A');
+            $table->string('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

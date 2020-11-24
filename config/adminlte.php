@@ -251,7 +251,7 @@ return [
                 ],
                 [
                     'text' => 'Operaciones',
-                    'url'  => '#',
+                    'url'  => 'operationtype',
                 ],
                 [
                     'text' => 'Equipo',

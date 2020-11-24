@@ -15,7 +15,7 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('description')->default("N/A");
+            $table->string('description')->nullable();
             $table->string('name');
             $table->float('price')->nullable();
             $table->string('property_key')->unique();
