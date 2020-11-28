@@ -25,7 +25,7 @@ class UpdateUser extends FormRequest
     {
         return [
             'name' => 'required|max:100',
-            'email' => 'required|max:100|unique:users,email,'.$this->user->id,
+            'email' => 'required|max:100|unique:users,email,NULL,id,deleted_at,NULL'.$this->user->id,
             'password' => 'required_with:confirm_password|same:confirm_password'
         ];
     }

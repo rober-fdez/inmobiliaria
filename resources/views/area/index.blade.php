@@ -7,7 +7,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Tipos de operaciones</li>
+          <li class="breadcrumb-item active" aria-current="page">Áreas</li>
         </ol>
     </nav>
     <div class="row">
@@ -15,9 +15,9 @@
             @include('custom.message')
             <div class="card card-primary">
                 <div class="card-header">
-                    <h4 class="card-title">Tipos de operaciones</h4>
+                    <h4 class="card-title">Áreas</h4>
                     <div class="card-tools">
-                        <a href="{{ route('operationtype.create') }}"><span class="badge badge-primary"><i class="fas fa-plus"></i> Nuevo</span></a>
+                        <a href="{{ route('area.create') }}"><span class="badge badge-primary"><i class="fas fa-plus"></i> Nuevo</span></a>
                     </div>
                     <!-- /.card-tools -->
                 </div>
@@ -33,18 +33,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($operationtypes as $operationtype)
+                                @foreach($areas as $area)
                                     <tr>
-                                        <td>{{$operationtype->name}}</td>
-                                        <td>{{$operationtype->description}}</td>
+                                        <td>{{$area->name}}</td>
+                                        <td>{{$area->description}}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <form action="{{ route('operationtype.destroy', $operationtype->id) }}" method="POST">
+                                                <form action="{{ route('area.destroy', $area->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" onclick="return confirm('Desea eliminar el tipo de opperacion {{$operationtype->name}}')" class="btn btn-danger btn-sm" href="{{ route('user.destroy', $operationtype->id) }}"><i class="fas fa-trash"></i></button>
+                                                    <button type="submit" onclick="return confirm('Desea eliminar el área {{$area->name}}')" class="btn btn-danger btn-sm" href="{{ route('area.destroy', $area->id) }}"><i class="fas fa-trash"></i></button>
                                                 </form>
-                                                <a type="button" class="btn btn-success btn-sm" href="{{ route('operationtype.edit', $operationtype->id) }}"><i class="fas fa-edit"></i></a>
+                                                <a type="button" class="btn btn-success btn-sm" href="{{ route('area.edit', $area->id) }}"><i class="fas fa-edit"></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -52,7 +52,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{ $operationtypes->links() }}
+                    {{ $areas->links() }}
                 </div>
                 <!-- /.card-body -->
             </div>

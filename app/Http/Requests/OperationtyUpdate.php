@@ -24,7 +24,7 @@ class OperationtyUpdate extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:operationtypes,name,'.$this->operationtype->id,
+            'name' => 'required|unique:operationtypes,name,NULL,id,deleted_at,NULL'.$this->operationtype->id,
         ];
     }
     public function messages()

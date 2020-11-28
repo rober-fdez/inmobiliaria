@@ -24,7 +24,7 @@ class OperationtypeStore extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:inmuebletypes,name'
+            'name' => 'required|unique:inmuebletypes,name,NULL,id,deleted_at,NULL'
         ];
     }
     public function messages()

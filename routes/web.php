@@ -25,3 +25,8 @@ Route::get('inactive/{id}', 'UserController@setInactiveUser')->name('inactivate-
 Route::get('active/{id}', 'UserController@setActiveUser')->name('active-user');
 Route::resource('inmuebletype', 'InmuebletypeController');
 Route::resource('operationtype', 'OperationtypeController');
+Route::resource('equipament', 'EquipamentController');
+Route::resource('area', 'AreaController');
+Route::resource('detail', 'DetailController');
+Route::resource('property', 'PropertyController');
+Route::resource('country', 'CountryController');

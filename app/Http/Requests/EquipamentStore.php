@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InmuebletypeUpdate extends FormRequest
+class EquipamentStore extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class InmuebletypeUpdate extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:inmuebletypes,name,NULL,id,deleted_at,NULL'.$this->inmuebletype->id,
+            'name' => 'required|unique:equipaments,name,NULL,id,deleted_at,NULL'
         ];
     }
     public function messages()

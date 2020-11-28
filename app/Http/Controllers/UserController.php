@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateUser;
 use App\Http\Requests\UserStore;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -99,6 +100,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->setUserEmailAsDeleted($id);
         User::destroy($id);
         return redirect('user')->with('status_success', "El usuario se elimino correctamente");
     }
@@ -113,5 +115,10 @@ class UserController extends Controller
         $user->status = 1 ;
         $user->save();
         return redirect('user')->with('status_success', "El usuario se habilito correctamente");
+    }
+    public function setUserEmailAsDeleted($id){
+        $user = User::find($id);
+        $user->email = 'deleted_'.Str::random(5).'_'.$user->email;
+        $user->save();
     }
 }

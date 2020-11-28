@@ -238,7 +238,7 @@ return [
         ],
         [
             'text' => 'Propiedades',
-            'url'  => '/',
+            'url'  => 'property',
             'icon' => 'fas fa fa-home',
         ],
         [
@@ -250,25 +250,43 @@ return [
                     'url'  => 'inmuebletype',
                 ],
                 [
-                    'text' => 'Operaciones',
+                    'text' => 'Tipos de operaciones',
                     'url'  => 'operationtype',
                 ],
                 [
                     'text' => 'Equipo',
-                    'url'  => '#',
+                    'url'  => 'equipament',
                 ],
                 [
                     'text' => 'Áreas',
-                    'url'  => '#',
+                    'url'  => 'area',
                 ],
                 [
                     'text' => 'Descripciones',
-                    'url'  => '#',
+                    'url'  => 'detail',
                 ],
                 [
-                    'text' => 'Ubicaciones',
-                    'url'  => '#',
+                'text'    => 'Ubicaciones',
+                'icon'    => 'fas fa-globe',
+                'submenu' => [
+                    [
+                        'text' => 'Paises',
+                        'url'  => 'country',
+                    ],
+                    [
+                        'text' => 'Estados',
+                        'url'  => 'state',
+                    ],
+                    [
+                        'text' => 'Municipios',
+                        'url'  => 'municipality',
+                    ],
+                    [
+                        'text' => 'Localidades  ',
+                        'url'  => 'locality',
+                    ],
                 ],
+            ],
             ],
         ],
         [

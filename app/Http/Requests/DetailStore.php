@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InmuebletypeUpdate extends FormRequest
+class DetailStore extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class InmuebletypeUpdate extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:inmuebletypes,name,NULL,id,deleted_at,NULL'.$this->inmuebletype->id,
+            'name' => 'required|unique:details,name,NULL,id,deleted_at,NULL'
         ];
     }
     public function messages()
     {
         return [
             'name.required' => 'El nombre es requerido',
-            'name.unique' => 'Este nombre de inmueble ya existe'
+            'name.unique' => 'Este nombre de detalle ya existe'
         ];
     }
 }
