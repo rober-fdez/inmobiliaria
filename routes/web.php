@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +29,4 @@ Route::resource('area', 'AreaController');
 Route::resource('detail', 'DetailController');
 Route::resource('property', 'PropertyController');
 Route::resource('country', 'CountryController');
+Route::resource('state', 'StateController');

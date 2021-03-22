@@ -6,7 +6,7 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('country.index')}}">Estados</a></li>
+          <li class="breadcrumb-item"><a href="{{route('state.index')}}">Estados</a></li>
           <li class="breadcrumb-item active" aria-current="page">Crear</li>
         </ol>
     </nav>
@@ -18,8 +18,16 @@
                     <h4 class="card-title">Crear nueva estado</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('country.store') }}" method="POST">
+                    <form action="{{ route('state.store') }}" method="POST">
                         @csrf
+                        <div class="form-group">
+                            <label for="country_id">Seleccione País</label>
+                            <select name="country_id" id="country_id" class="form-control select2">
+                                @foreach ($countries as $country)
+                                    <option value="{{$country->id}}">{{$country->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="name">Nombre<span style="color: red">*</span></label>
                             <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}">
@@ -50,6 +58,7 @@
 @section('js')
 <script>
     $(document).ready(function () {
+        $('.select2').select2()
     });
 </script>
 @stop
